@@ -16,6 +16,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Set actions
+        var firstAction: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        firstAction.identifier = "FIRST_ACTION"
+        firstAction.title = "Cancel"
+        
+        firstAction.activationMode = UIUserNotificationActivationMode.Background
+        firstAction.destructive = true
+        firstAction.authenticationRequired = false
+        
+        var secondAction: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        secondAction.identifier = "SECOND_ACTION"
+        secondAction.title = "Launch App"
+        
+        secondAction.activationMode = UIUserNotificationActivationMode.Foreground
+        secondAction.destructive = false
+        secondAction.authenticationRequired = false
+        
+        var thirdAction: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        thirdAction.identifier = "THIRD_ACTION"
+        thirdAction.title = "Third Action"
+        
+        thirdAction.activationMode = UIUserNotificationActivationMode.Background
+        thirdAction.destructive = false
+        thirdAction.authenticationRequired = false
+        
+        
+        //categories
+        
+        var firstCategory:UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
+        firstCategory.identifier = "FIRST_CATEGORY"
+        
+        let defaultAction: NSArray = [firstAction, secondAction, thirdAction]
+        let minimalAction: NSArray = [firstAction, secondAction]
+        
+        firstCategory.setActions(defaultAction, forContext: UIUserNotificationActionContext.Default)
+        firstCategory.setActions(minimalAction, forContext: UIUserNotificationActionContext.Minimal)
+        
+        //Set for categories
+        let theCategories: NSSet = NSSet(object: firstCategory)
+        
+
+        let types:UIUserNotificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge
+        
+        let theSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: theCategories)
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(theSettings)
+        
         return true
     }
 
@@ -39,6 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        //println("local notification")
     }
 
 

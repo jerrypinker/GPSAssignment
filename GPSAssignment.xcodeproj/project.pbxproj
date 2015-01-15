@@ -13,6 +13,8 @@
 		CC5048181A67566500F99244 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC5048171A67566500F99244 /* Images.xcassets */; };
 		CC50481B1A67566500F99244 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5048191A67566500F99244 /* LaunchScreen.xib */; };
 		CC5048271A67566500F99244 /* GPSAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5048261A67566500F99244 /* GPSAssignmentTests.swift */; };
+		CC5048311A6771DD00F99244 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5048301A6771DD00F99244 /* MapKit.framework */; };
+		CC5048331A6771E300F99244 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5048321A6771E300F99244 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		CC5048201A67566500F99244 /* GPSAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC5048251A67566500F99244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC5048261A67566500F99244 /* GPSAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSAssignmentTests.swift; sourceTree = "<group>"; };
+		CC5048301A6771DD00F99244 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CC5048321A6771E300F99244 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC5048331A6771E300F99244 /* MobileCoreServices.framework in Frameworks */,
+				CC5048311A6771DD00F99244 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +96,8 @@
 		CC50480E1A67566500F99244 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CC5048321A6771E300F99244 /* MobileCoreServices.framework */,
+				CC5048301A6771DD00F99244 /* MapKit.framework */,
 				CC50480F1A67566500F99244 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -161,6 +169,11 @@
 				TargetAttributes = {
 					CC50480A1A67566500F99244 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					CC50481F1A67566500F99244 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -407,6 +420,7 @@
 				CC50482C1A67566500F99244 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CC50482D1A67566500F99244 /* Build configuration list for PBXNativeTarget "GPSAssignmentTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +429,7 @@
 				CC50482F1A67566500F99244 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
